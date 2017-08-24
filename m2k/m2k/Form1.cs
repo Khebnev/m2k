@@ -19,20 +19,18 @@ namespace m2k
         // нажатие клавиши в поле редактирования
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             /*Правильными символами считаются цифры,
-             * Запятая, <Enter> и <Backspace>.
-             * Будем считать правильным сиволом
-             * также точку, но заменим её запятой.
-             * Остальные символы запрещены.
-             * Чтобы запрещенный символ не отображался
-             * в поле редактирования, присвоим
-             * значение true свойству Handled параметра e
-             */
+            * Запятая, <Enter> и <Backspace>.
+            * Будем считать правильным сиволом
+            * также точку, но заменим её запятой.
+            * Остальные символы запрещены.
+            * Чтобы запрещенный символ не отображался
+            * в поле редактирования, присвоим
+            * значение true свойству Handled параметра e
+            */
             if ((e.KeyChar >= '0') && (e.KeyChar <= '9'))
             {
                 //Цифра
@@ -55,10 +53,10 @@ namespace m2k
                 return;
             }
 
-            if ( Char.IsControl (e.KeyChar))
+            if (Char.IsControl(e.KeyChar))
             {
                 //<Enter>, <Backspace>, <Esc>
-                if (e.KeyChar == (char) Keys.Enter)
+                if (e.KeyChar == (char)Keys.Enter)
                     //Нажата клавига <Enter>
                     //Установить курсор на кнопку OK
                     button1.Focus();
@@ -69,7 +67,5 @@ namespace m2k
             e.Handled = true;
         }
         //Щелчок по кнопке ОК
-
     }
 }
-
